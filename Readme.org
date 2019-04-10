@@ -1,0 +1,7 @@
+* Nix RTS
+
+With this, you can finally use Nix to create runnable programs! See default.nix for an example, to execute:
+
+#+BEGIN_SRC bash
+$ nix-instantiate --eval --read-write-mode --option allow-unsafe-native-code-during-evaluation true
+#+END_SRC
