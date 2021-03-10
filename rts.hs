@@ -1,6 +1,7 @@
 import           Control.Concurrent
 import           System.Environment
 import           System.IO
+import           Data.Char
 
 main :: IO ()
 main = do
@@ -17,6 +18,8 @@ main = do
       putStrLn "null"
 
 
--- TODO: Actually do escaping properly
 nixEscape :: String -> String
-nixEscape input = "\"" ++ input ++ "\""
+nixEscape input = "\"" ++ concatMap escapeChar input ++ "\"" where
+  escapeChar c
+    | isAlpha c = [c]
+    | otherwise = ['\\', c]
