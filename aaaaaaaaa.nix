@@ -1,5 +1,2 @@
 with import ./rts.nix;
-
-let
-  main = bind (write "a") (_: main);
-in runIO main
+runIO (forever (write "a"))
